@@ -248,6 +248,72 @@ datasets使用了IEMOCAP, MELD, DailyDialog, EmoryNLP。DAG-ERC在IEMOCAP、Dail
 
 ****
 
+### Does syntax matter? A strong baseline for Aspect-based Sentiment Analysis with RoBERTa [[paper](https://arxiv.org/abs/2104.04986)] [ACL '21]
+
+**Motivation**
+
+主要在这篇文章中回答两个问题：
+
+1. Tree induced from PTM会不会比dependency parser给出的tree有更好的performance？
+2. fine-tuning时，PTM会不会adapt entailed tree structure implicitly？
+
+缩写：ALSC - aspect-level sentiment classification
+
+**Contribution**
+
+**Method**
+
+- Perturbed Masking Method
+  - Detect syntactic information from pre-trained models
+  - Impact value：impact a token $x_j$ has on another token $x_i$
+    - Apply "[MASK]" on $x_i$, and get the representation $H_{\theta}(x\setminus\{x_i\})_i$
+    - Apply "[MASK]" on $x_j$, and get the representation $H_{\theta}(x\setminus\{x_i, x_j\})_i$
+    - Impact value is the Euclidean distance between the above two representations
+      - $f(x_i, x_j) = \|H_{\theta}(x\setminus\{x_i\})_i - H_{\theta}(x\setminus\{x_i, x_j\})_i\|_2$
+- ALSC Models based on Trees
+  - Aspect-specific Graph Convolutional Networks (ASGCN)
+    - Build dependency as a graph
+    - Use GCN to model dependencies between each word
+  - Proximity-weighted Convolution network (PWCN)
+    - Use PWCN to get the dependency tree
+    - Assign proximity value to each word based on the tree
+    - Proximity value for each word: the shortest path in the dependency tree between this word and the aspects
+  - Relational Graph Attention Network (RGAT)
+    - Aspect-oriented dependency tree
+      - Use aspects as the root node, all other words depend on the aspect directly
+      - Relation between the aspect and other words: syntactic tag or tree-based distance
+
+**Experiment**
+
+- Dataset
+  - English datasets: Rest14, Laptop14, Twitter
+- Tree structures
+  - Off-the-shelf dependency tree parser: spaCy and allenNLP
+  - pre-trained BERT and RoBERTa by perturbed masking method
+  - Fine-tuned BERT and RoBERTa with perturbed masking (Fine-tuning in the corresponding datasets - ALSC datasets)
+- Implementation
+  - FT-PTM: batch size 32, dropout 0.1, lr 2e-4, AdamW optimizer
+  - Tree-decoding: Chu-Liu/Edmond's Algorithm
+- Result
+  - Models with dependecy trees usually achieve better performance than PTMs induced trees
+    - PTMs induced trees tend to learn from neighbors
+  - FT-RoBERTa leads to the best results on all the datasets
+  - FT models on ALSC could adapt the induced tree implicitly
+    - Less proportion of neighboring connections
+    - Less aspect-sentiment distance
+  - RoBERTa with MLP layer achieve SOTA or near SOTA performance (?)
+  - 
+- Analysis
+  - Proportions of Neighboring Connections
+  - Aspects-sentiment Distance - Avg distance between aspect and sentiment words
+
+**Conclusion**
+
+- PTMs-suitable tree-based models
+- Tree-inducing methods from PTMs
+
+****
+
 ### Thoughts on using MDP/HMM to transfer emotion state
 
 Input: `robot current emotion state`, `user utterance`, `user utterance emotion state`, `情感强度`
@@ -283,7 +349,7 @@ label_map = {
 }
 ```
 
-现有sentiment analysis的[功能文档](https://confluence.leihuo.netease.com/pages/viewpage.action?pageId=21229920)
+
 
 对于目前conversation中的情感识别一般需要使用graph的structure，因为需要多方的信息去判断当前的情感。对于目前的情感模块来说，应该只是一个pretrain model在游戏数据上fine-tune，并没有考虑到对话的特殊性。
 

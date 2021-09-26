@@ -1,4 +1,6 @@
-### Pre-trained Models for Natural Language Processing: A survey
+# Pre-trained Models
+
+## Pre-trained Models for Natural Language Processing: A survey [[paper](https://arxiv.org/abs/2003.08271)]
 
 #### Language Representation Learning
 
@@ -33,4 +35,10 @@
   - Permuted Language Model
   - Denoising Autoencoder (DAE)
   - Contrastive Learning (CTL)
+
+
+
+## Sidenotes
+
+1. [知乎](https://zhuanlan.zhihu.com/p/406512290) 常见预训练语言模型总结
 
