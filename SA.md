@@ -1,5 +1,20 @@
 # Sentiment Analysis
 
+### Table of Contents
+
+- [Overview](###Overview)
+- [Dataset](###Dataset)
+- Paper
+  1. [link](###Infusing Multi-Source Knowledge with Heterogeneous Graph Neural Network for Emotional Conversation Generation [[paper](https://arxiv.org/pdf/2012.04882.pdf)] [[code](https://github.com/XL2248/HGNN)] [AAAI '21]) Infusing Multi-Source Knowledge with Heterogeneous Graph Neural Network for Emotional Conversation Generation [AAAI '21]
+  2. [link](###Graph Based Network with Contextualized Representations of Turns in Dialogue [[paper](https://arxiv.org/pdf/2109.04008.pdf)] [[code](https://github.com/BlackNoodle/TUCORE-GCN)] [EMNLP '21]) Graph Based Network with Contextualized Representations of Turns in Dialogue [EMNLP '21]
+  3. [link](###Directed Acyclic Graph Network for Conversational Emotion Recognition [[paper](https://arxiv.org/abs/2105.12907)] [[code](https://github.com/shenwzh3/DAG-ERC)] [ACL '21]) Directed Acyclic Graph Network for Conversational Emotion Recognition [ACL '21]
+  4. [link](###Does syntax matter? A strong baseline for Aspect-based Sentiment Analysis with RoBERTa [[paper](https://arxiv.org/abs/2104.04986)] [ACL '21]) Does syntax matter? A strong baseline for Aspect-based Sentiment Analysis with RoBERTa [ACL '21]
+- [Sidenotes](###Sidenotes)
+
+****
+
+### Overview
+
 在Emotion Recognition in Conversation (ERC) task中，一般来说有两种model conversation context的方式：
 
 1. Graph-based Method
@@ -62,6 +77,8 @@
 
 3. EmoryNLP
 
+****
+
 ### Infusing Multi-Source Knowledge with Heterogeneous Graph Neural Network for Emotional Conversation Generation [[paper](https://arxiv.org/pdf/2012.04882.pdf)] [[code](https://github.com/XL2248/HGNN)] [AAAI '21]
 
 **Motivation**
@@ -122,11 +139,9 @@ semantic-level similarity between the generated responses and the ground truth
 
 fine-tune a BERT-based emotion classifier (W-avg 62.55 > DialogGCN) on the text utterances of MELD as one evaluation tool for the accuracy of emotion expression for generated response
 
-
-
 **Conclusion**
 
-
+[Back to Top](###Table of Contents)
 
 ****
 
@@ -169,6 +184,8 @@ Effective relation extraction中有几个问题：
 - 在MELD和EmoryNLP上用RoBERTa的效果更好，CESTa在DailyDialog上比该方法好，为63.12
 
 **Conclusion**
+
+[Back to Top](###Table of Contents)
 
 ****
 
@@ -237,6 +254,8 @@ datasets使用了IEMOCAP, MELD, DailyDialog, EmoryNLP。DAG-ERC在IEMOCAP、Dail
 - 在多人对话中，两句utterances有相同说话人的信息对最终结果没有太大作用
 - 当layer增加时，DAG network不会像GNN一样那么容易受over-smoothing的影响
 - 很多DAG-ERC的错误都是发生在misjudge neutral samples，emotional shift的时候
+
+[Back to Top](###Table of Contents)
 
 ****
 
@@ -312,6 +331,8 @@ datasets使用了IEMOCAP, MELD, DailyDialog, EmoryNLP。DAG-ERC在IEMOCAP、Dail
 - PTMs-suitable tree-based models
 - Tree-inducing methods from PTMs
 
+[Back to Top](###Table of Contents)
+
 ****
 
 ### Thoughts on using MDP/HMM to transfer emotion state
@@ -366,6 +387,12 @@ label_map = {
 6. [MDP](https://amy12xx.github.io/rl/2020/08/23/solving-markov-descision-processes.html) 图解
 7. https://zhuanlan.zhihu.com/p/104337841
 8. [github](https://github.com/yirui-wang-0212/NLP-SentimentAnalysisForChineseText) Chinese Sentiment Analysis
+
+
+
+[Back to Top](###Table of Contents)
+
+
 
 
 
