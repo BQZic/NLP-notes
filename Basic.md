@@ -86,5 +86,13 @@ Layer Normalization: x1, x2, x3
 
 [Medium Post](https://medium.com/mlearning-ai/optimizers-in-deep-learning-7bf81fed78a0)
 
+****
+
+### Batch Size
+
+[zhihu](https://zhuanlan.zhihu.com/p/414340639)
+
+
+
 
 

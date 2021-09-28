@@ -1,15 +1,19 @@
-# Sentiment Analysis
+# Sentiment Analysis & ERC
 
 ### Table of Contents
 
-- [Overview](###Overview)
-- [Dataset](###Dataset)
+- [Overview](#overview)
+  - Emotion Recognition in Conversation
+- [Dataset](#dataset)
 - Paper
-  1. [link](###Infusing Multi-Source Knowledge with Heterogeneous Graph Neural Network for Emotional Conversation Generation [[paper](https://arxiv.org/pdf/2012.04882.pdf)] [[code](https://github.com/XL2248/HGNN)] [AAAI '21]) Infusing Multi-Source Knowledge with Heterogeneous Graph Neural Network for Emotional Conversation Generation [AAAI '21]
-  2. [link](###Graph Based Network with Contextualized Representations of Turns in Dialogue [[paper](https://arxiv.org/pdf/2109.04008.pdf)] [[code](https://github.com/BlackNoodle/TUCORE-GCN)] [EMNLP '21]) Graph Based Network with Contextualized Representations of Turns in Dialogue [EMNLP '21]
-  3. [link](###Directed Acyclic Graph Network for Conversational Emotion Recognition [[paper](https://arxiv.org/abs/2105.12907)] [[code](https://github.com/shenwzh3/DAG-ERC)] [ACL '21]) Directed Acyclic Graph Network for Conversational Emotion Recognition [ACL '21]
-  4. [link](###Does syntax matter? A strong baseline for Aspect-based Sentiment Analysis with RoBERTa [[paper](https://arxiv.org/abs/2104.04986)] [ACL '21]) Does syntax matter? A strong baseline for Aspect-based Sentiment Analysis with RoBERTa [ACL '21]
-- [Sidenotes](###Sidenotes)
+  - ERC
+    - Infusing Multi-Source Knowledge with Heterogeneous Graph Neural Network for Emotional Conversation Generation [AAAI '21]
+    - Graph Based Network with Contextualized Representations of Turns in Dialogue [EMNLP '21]
+    - Directed Acyclic Graph Network for Conversational Emotion Recognition [ACL '21]
+  - Sentiment Analysis
+    - Does syntax matter? A strong baseline for Aspect-based Sentiment Analysis with RoBERTa [NAACL '21]
+    - A Unified Generative Framework for Aspect-based Sentiment Analysis [ACL '21]
+- [Sidenotes](#sidenotes)
 
 ****
 
@@ -141,7 +145,7 @@ fine-tune a BERT-based emotion classifier (W-avg 62.55 > DialogGCN) on the text 
 
 **Conclusion**
 
-[Back to Top](###Table of Contents)
+[Back to Top](#table-of-contents)
 
 ****
 
@@ -185,7 +189,7 @@ Effective relation extraction中有几个问题：
 
 **Conclusion**
 
-[Back to Top](###Table of Contents)
+[Back to Top](#table-of-contents)
 
 ****
 
@@ -255,7 +259,7 @@ datasets使用了IEMOCAP, MELD, DailyDialog, EmoryNLP。DAG-ERC在IEMOCAP、Dail
 - 当layer增加时，DAG network不会像GNN一样那么容易受over-smoothing的影响
 - 很多DAG-ERC的错误都是发生在misjudge neutral samples，emotional shift的时候
 
-[Back to Top](###Table of Contents)
+[Back to Top](#table-of-contents)
 
 ****
 
@@ -267,7 +271,7 @@ datasets使用了IEMOCAP, MELD, DailyDialog, EmoryNLP。DAG-ERC在IEMOCAP、Dail
 
 ****
 
-### Does syntax matter? A strong baseline for Aspect-based Sentiment Analysis with RoBERTa [[paper](https://arxiv.org/abs/2104.04986)] [ACL '21]
+### Does syntax matter? A strong baseline for Aspect-based Sentiment Analysis with RoBERTa [[paper](https://arxiv.org/abs/2104.04986)] [[code](https://github.com/ROGERDJQ/RoBERTaABSA)] [ACL '21]
 
 **Motivation**
 
@@ -279,6 +283,9 @@ datasets使用了IEMOCAP, MELD, DailyDialog, EmoryNLP。DAG-ERC在IEMOCAP、Dail
 缩写：ALSC - aspect-level sentiment classification
 
 **Contribution**
+
+- FT-RoBERTa SOTA or near SOTA on datasets
+- 回答前两个问题
 
 **Method**
 
@@ -321,7 +328,6 @@ datasets使用了IEMOCAP, MELD, DailyDialog, EmoryNLP。DAG-ERC在IEMOCAP、Dail
     - Less proportion of neighboring connections
     - Less aspect-sentiment distance
   - RoBERTa with MLP layer achieve SOTA or near SOTA performance (?)
-  - 
 - Analysis
   - Proportions of Neighboring Connections
   - Aspects-sentiment Distance - Avg distance between aspect and sentiment words
@@ -331,7 +337,27 @@ datasets使用了IEMOCAP, MELD, DailyDialog, EmoryNLP。DAG-ERC在IEMOCAP、Dail
 - PTMs-suitable tree-based models
 - Tree-inducing methods from PTMs
 
-[Back to Top](###Table of Contents)
+[tx分析](https://cloud.tencent.com/developer/article/1817052)
+
+[Back to Top](#table-of-contents)
+
+****
+
+### A Unified Generative Framework for Aspect-based Sentiment Analysis [[paper](https://arxiv.org/abs/2106.04300)] [[code](https://github.com/yhcc/BARTABSA)] [ACL '21]
+
+**Motivation**
+
+
+
+**Contribution**
+
+**Method**
+
+**Experiment**
+
+**Conclusion**
+
+[Back to Top](#table-of-contents)
 
 ****
 
@@ -390,9 +416,7 @@ label_map = {
 
 
 
-[Back to Top](###Table of Contents)
-
-
+[Back to Top](#table-of-contents)
 
 
 
